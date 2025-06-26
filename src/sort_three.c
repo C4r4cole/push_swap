@@ -1,37 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
+/*   sort_three.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmoulin <fmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/07 14:45:21 by fmoulin           #+#    #+#             */
-/*   Updated: 2025/06/26 12:05:41 by fmoulin          ###   ########.fr       */
+/*   Created: 2025/06/26 15:12:30 by fmoulin           #+#    #+#             */
+/*   Updated: 2025/06/26 15:22:28 by fmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/push_swap.h"
 
-t_list	*ft_lstnew(void *content)
+void	sort_three(t_stack_node **a)
 {
-	t_list	*new;
+	t_stack_node *biggest_node;
 
-	new = malloc(sizeof(t_list));
-	if (!new)
-		return (NULL);
-	new->content = content;
-	new->next = NULL;
-	return (new);
+	biggest_node = find_max(*a);
+	if (biggest_node == *a)
+		ra(a, false);
+	else if((*a)->next == biggest_node)
+		rra(a, false);
+	if ((*a)->nbr > (*a)->next->nbr)
+		sa(a, false);
 }
-
-// #include <stdio.h>
-
-// int	main(void)
-// {
-// 	t_list	*new_struct;
-// 	char	*str = "hello";
-
-// 	new_struct = ft_lstnew(str);
-// 	printf("%s\n", (char *)new_struct->content);
-// 	return (0);
-// }

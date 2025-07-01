@@ -6,7 +6,7 @@
 #    By: fmoulin <fmoulin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/25 17:49:40 by fmoulin           #+#    #+#              #
-#    Updated: 2025/06/25 18:23:12 by fmoulin          ###   ########.fr        #
+#    Updated: 2025/07/01 21:42:25 by fmoulin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,10 +14,14 @@
 NAME = push_swap
 
 # Liste des .c
-SRCS = src/push_swap.c src/parser.c src/sort.c src/utils.c
+SRCS = 	src/errors.c src/free.c src/init_a_to_b.c src/init_b_to_a.c src/main.c src/push.c \
+		src/reverse_rotate.c src/rotate.c src/sort_stacks.c src/sort_three.c src/stack_init.c \
+		src/swap.c src/utils.c
 
 # Liste des .o correspondants
-OBJS = obj/push_swap.o obj/parser.o obj/sort.o obj/utils.o
+OBJS = 	obj/errors.o obj/free.o obj/init_a_to_b.o obj/init_b_to_a.o obj/main.o obj/push.o \
+		obj/reverse_rotate.o obj/rotate.o obj/sort_stacks.o obj/sort_three.o obj/stack_init.o \
+		obj/swap.o obj/utils.o
 
 # Compilation
 CC = cc

@@ -6,7 +6,7 @@
 /*   By: fmoulin <fmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 09:12:46 by fmoulin           #+#    #+#             */
-/*   Updated: 2025/07/01 16:04:36 by fmoulin          ###   ########.fr       */
+/*   Updated: 2025/07/01 21:28:28 by fmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ typedef struct s_stack_node
 }				t_stack_node;
 
 
-t_stack_node	*ft_lstnew(void *content);
+t_stack_node	*ft_lstnew(int n);
 void			ft_lstadd_front(t_list **lst, t_list *new);
 int				ft_lstsize(t_stack_node *lst);
 t_stack_node	*ft_lstlast(t_stack_node *lst);
@@ -52,7 +52,6 @@ void			ft_lstadd_back(t_list **lst, t_list *new);
 void			ft_lstdelone(t_list *lst, void (*del)(void *));
 void			ft_lstclear(t_list **lst, void (*del)(void *));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
-t_list			*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 // Mandatory part
 

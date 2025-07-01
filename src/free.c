@@ -1,38 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmoulin <fmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/26 10:56:52 by fmoulin           #+#    #+#             */
-/*   Updated: 2025/07/01 20:58:20 by fmoulin          ###   ########.fr       */
+/*   Created: 2025/07/01 21:12:04 by fmoulin           #+#    #+#             */
+/*   Updated: 2025/07/01 21:21:42 by fmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	main(int argc, char **argv)
+void	free_stack(t_stack_node **stack)
 {
-	t_stack_node *a;
-	t_stack_node *b;
+	t_stack_node	*tmp;
+	t_stack_node	*current;
 
-	a = NULL;
-	b = NULL;
-	if (argc == 1 || (argc == 2 && !argv[0][1]))
-		return (1);
-	else if (argc == 2)
-		argv = ft_split(argv[1], ' ');
-	init_stack_a(&a, argv + 1);
-	if (!stack_sorted(a))
+	if (!stack)
+		return ;
+	current = *stack;
+	while (current)
 	{
-		if(ft_lstsize(a) == 2)
-			sa(&a, false);
-		else if (ft_lstsize(a) == 3)
-			sort_three(&a);
-		else
-			sort_stacks(&a, &b);
+		
+		tmp = current->next;
+		free(current);
+		current = tmp;
 	}
-	free_stack(&a);
-	return (0);
+	*stack = NULL;
+}
+
+void	free_errors(t_stack_node **a)
+{
+	free_stack(a);
+	ft_printf("Error\n");
+	exit(1);
 }

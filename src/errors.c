@@ -1,38 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmoulin <fmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/26 10:56:52 by fmoulin           #+#    #+#             */
-/*   Updated: 2025/07/01 20:58:20 by fmoulin          ###   ########.fr       */
+/*   Created: 2025/07/01 20:59:07 by fmoulin           #+#    #+#             */
+/*   Updated: 2025/07/01 21:44:40 by fmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	main(int argc, char **argv)
+int	error_synthax(char *str_n)
 {
-	t_stack_node *a;
-	t_stack_node *b;
+	int	i;
 
-	a = NULL;
-	b = NULL;
-	if (argc == 1 || (argc == 2 && !argv[0][1]))
+	i = 0;
+	if (!(str_n[i] == '+' || str_n[i] == '-' || (str_n[i] >= '0' && str_n[i] <= '9')))
 		return (1);
-	else if (argc == 2)
-		argv = ft_split(argv[1], ' ');
-	init_stack_a(&a, argv + 1);
-	if (!stack_sorted(a))
+	if ((str_n[i] == '+' || str_n[i] == '-') && !(str_n[i + 1] >= '0' && str_n[i + 1] <= '9'))
+		return (1);
+	while (str_n[i])
 	{
-		if(ft_lstsize(a) == 2)
-			sa(&a, false);
-		else if (ft_lstsize(a) == 3)
-			sort_three(&a);
-		else
-			sort_stacks(&a, &b);
+		if (!(str_n[i] >= '0' && str_n[i] <= '9'))
+			return (1);
+		i++;
 	}
-	free_stack(&a);
+	return (0);
+}
+int	error_duplicate(t_stack_node *a, int n)
+{
+	if (!a)
+		return (0);
+	while (a)
+	{
+		if (a->nbr == n)
+			return (1);
+		a = a->next;
+	}
 	return (0);
 }

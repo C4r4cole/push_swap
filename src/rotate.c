@@ -6,7 +6,7 @@
 /*   By: fmoulin <fmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 13:41:10 by fmoulin           #+#    #+#             */
-/*   Updated: 2025/07/01 18:57:47 by fmoulin          ###   ########.fr       */
+/*   Updated: 2025/07/01 22:51:31 by fmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	rotate(t_stack_node **stack)
 	if (!stack || !*stack || !(*stack)->next)
 		return ;
 	first = *stack;
-	last = ft_lstlast(stack);
+	last = ft_lstlast(*stack);
 	//redefinie le premier node de la pile sur le deuxieme node
 	*stack = first->next;
 	(*stack)->prev = NULL;

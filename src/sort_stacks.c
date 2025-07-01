@@ -6,13 +6,13 @@
 /*   By: fmoulin <fmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 16:02:30 by fmoulin           #+#    #+#             */
-/*   Updated: 2025/07/01 13:26:40 by fmoulin          ###   ########.fr       */
+/*   Updated: 2025/07/01 22:58:06 by fmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static void	move_a_to_b(t_stack_node **a, t_stack_node **b)
+void	move_a_to_b(t_stack_node **a, t_stack_node **b)
 {
 	t_stack_node	*cheapest_node;
 
@@ -24,6 +24,23 @@ static void	move_a_to_b(t_stack_node **a, t_stack_node **b)
 	prep_for_push(a, cheapest_node, 'a');
 	prep_for_push(b, cheapest_node->target_node, 'b');
 	pb(b, a, false);
+}
+
+void	move_b_to_a(t_stack_node **a, t_stack_node **b)
+{
+	prep_for_push(a, (*b)->target_node, 'a');
+	pa(a, b, false);
+}
+
+void	min_on_top(t_stack_node **a)
+{
+	while ((*a)->nbr != find_min(*a)->nbr)
+	{
+		if (find_min(*a)->above_median)
+			ra(a, false);
+		else
+			rra(a, false);
+	}
 }
 
 void	sort_stacks(t_stack_node **a, t_stack_node **b)
@@ -49,5 +66,3 @@ void	sort_stacks(t_stack_node **a, t_stack_node **b)
 	current_index(*a);
 	min_on_top(a);
 }
-
-//Continuer video push swap de Thuggonaut a 34':50"

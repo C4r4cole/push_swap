@@ -6,7 +6,7 @@
 /*   By: fmoulin <fmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 14:35:57 by fmoulin           #+#    #+#             */
-/*   Updated: 2025/05/21 17:15:03 by fmoulin          ###   ########.fr       */
+/*   Updated: 2025/07/01 23:05:19 by fmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,14 @@ int	ft_printf(const char *format, ...)
 	return (count);
 }
 
-int	main(void)
-{
-	int		count;
-	char	*str;
+// int	main(void)
+// {
+// 	int		count;
+// 	char	*str;
 
-	str = NULL;
-	count = ft_printf("%p\n", &str);
-	ft_printf("The chars written are %d\n", count);
-	count = printf("%p\n", &str);
-	printf("The chars written are %d\n", count);
-}
+// 	str = NULL;
+// 	count = ft_printf("%p\n", &str);
+// 	ft_printf("The chars written are %d\n", count);
+// 	count = printf("%p\n", &str);
+// 	printf("The chars written are %d\n", count);
+// }

@@ -6,13 +6,13 @@
 /*   By: fmoulin <fmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 13:57:56 by francoismou       #+#    #+#             */
-/*   Updated: 2025/05/13 11:57:46 by fmoulin          ###   ########.fr       */
+/*   Updated: 2025/07/01 10:44:29 by fmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstlast(t_list *lst)
+t_stack_node	*ft_lstlast(t_stack_node *lst)
 {
 	if (!lst)
 		return (NULL);

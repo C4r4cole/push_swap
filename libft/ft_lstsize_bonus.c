@@ -6,13 +6,13 @@
 /*   By: fmoulin <fmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 12:28:39 by francoismou       #+#    #+#             */
-/*   Updated: 2025/05/12 14:39:17 by fmoulin          ###   ########.fr       */
+/*   Updated: 2025/07/01 10:36:52 by fmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_lstsize(t_list *lst)
+int	ft_lstsize(t_stack_node *lst)
 {
 	int	i;
 

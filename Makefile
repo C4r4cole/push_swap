@@ -6,7 +6,7 @@
 #    By: fmoulin <fmoulin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/25 17:49:40 by fmoulin           #+#    #+#              #
-#    Updated: 2025/07/01 21:42:25 by fmoulin          ###   ########.fr        #
+#    Updated: 2025/07/02 10:19:17 by fmoulin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ OBJS = 	obj/errors.o obj/free.o obj/init_a_to_b.o obj/init_b_to_a.o obj/main.o o
 
 # Compilation
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g3
 RM = rm -f
 
 # Compilation des .o dans obj/

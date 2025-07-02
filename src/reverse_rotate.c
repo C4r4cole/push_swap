@@ -6,7 +6,7 @@
 /*   By: fmoulin <fmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 19:40:32 by fmoulin           #+#    #+#             */
-/*   Updated: 2025/07/01 23:15:30 by fmoulin          ###   ########.fr       */
+/*   Updated: 2025/07/02 12:02:40 by fmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	reverse_rotate(t_stack_node **stack)
 {
 	t_stack_node *last;
 
-	if (!stack || !*stack || !(*stack)->next)
+	if (!*stack || !(*stack)->next)
 		return ;
 	last = ft_lstlast(*stack);
 	last->prev->next = NULL;

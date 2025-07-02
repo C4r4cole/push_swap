@@ -6,7 +6,7 @@
 /*   By: fmoulin <fmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 10:24:15 by fmoulin           #+#    #+#             */
-/*   Updated: 2025/07/01 22:32:14 by fmoulin          ###   ########.fr       */
+/*   Updated: 2025/07/02 10:41:08 by fmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	set_target_a(t_stack_node *a, t_stack_node *b)
 		current_b = b;
 		while (current_b)
 		{
-			if (current_b->nbr > a->nbr && current_b->nbr > best_match_index)
+			if (current_b->nbr < a->nbr && current_b->nbr > best_match_index)
 			{
 				best_match_index = current_b->nbr;
 				target_node = current_b;

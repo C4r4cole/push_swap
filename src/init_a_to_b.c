@@ -6,7 +6,7 @@
 /*   By: fmoulin <fmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 10:24:15 by fmoulin           #+#    #+#             */
-/*   Updated: 2025/07/02 10:41:08 by fmoulin          ###   ########.fr       */
+/*   Updated: 2025/07/03 12:13:05 by fmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,20 +84,29 @@ void	set_cheapest(t_stack_node *stack)
 {
 	long			cheapest_value;
 	t_stack_node	*cheapest_node;
+	t_stack_node	*current;
 
 	if (!stack)
 		return ;
-	cheapest_value = LONG_MAX;
-	while (stack)
+	current = stack;
+	while (current)
 	{
-		if (stack->push_cost < cheapest_value)
-		{
-			cheapest_value = stack->push_cost;
-			cheapest_node = stack;
-		}
-		stack = stack->next;
+		current->cheapest = false;
+		current = current->next;
 	}
-	cheapest_node->cheapest = true;
+	cheapest_value = LONG_MAX;
+	current = stack;
+	while (current)
+	{
+		if (current->push_cost < cheapest_value)
+		{
+			cheapest_value = current->push_cost;
+			cheapest_node = current;
+		}
+		current = current->next;
+	}
+	if (cheapest_node)
+		cheapest_node->cheapest = true;
 }
 
 void	init_nodes_a(t_stack_node *a, t_stack_node *b)

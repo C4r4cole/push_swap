@@ -6,7 +6,7 @@
 /*   By: fmoulin <fmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 17:10:16 by fmoulin           #+#    #+#             */
-/*   Updated: 2025/07/01 18:38:30 by fmoulin          ###   ########.fr       */
+/*   Updated: 2025/07/02 16:52:11 by fmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,15 @@
 
 void	swap(t_stack_node **stack)
 {
-	t_stack_node	*first;
-	t_stack_node	*second;
-
-	if (!stack || !*stack || !(*stack)->next)
+	if (!*stack || !(*stack)->next)
 		return ;
-	first = *stack;
-	second = (*stack)->next;
-	first->next = second->next;
-	second->next = first;
-	*stack = second;
+	*stack = (*stack)->next;
+	(*stack)->prev->prev = *stack;
+	(*stack)->prev->next = (*stack)->next;
+	if ((*stack)->next)
+		(*stack)->next->prev = (*stack)->prev;
+	(*stack)->next = (*stack)->prev;
+	(*stack)->prev = NULL;
 }
 
 void	sa(t_stack_node **a, bool print)
@@ -42,8 +41,8 @@ void	sb(t_stack_node **b, bool print)
 
 void	ss(t_stack_node **a, t_stack_node **b, bool print)
 {
-	sa(a, true);
-	sb(b, true);
+	swap(a);
+	swap(b);
 	if (!print)
 		ft_printf("ss\n");
 }

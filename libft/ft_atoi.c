@@ -6,17 +6,17 @@
 /*   By: fmoulin <fmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 13:46:47 by fmoulin           #+#    #+#             */
-/*   Updated: 2025/07/01 15:23:58 by fmoulin          ###   ########.fr       */
+/*   Updated: 2025/07/02 17:09:55 by fmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_atoi(const char *nptr)
+long	ft_atoi(const char *nptr)
 {
 	size_t	i;
 	size_t	sign;
-	size_t	nb;
+	long	nb;
 
 	i = 0;
 	sign = 1;

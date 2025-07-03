@@ -6,7 +6,7 @@
 /*   By: fmoulin <fmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 09:12:57 by fmoulin           #+#    #+#             */
-/*   Updated: 2025/07/01 23:01:37 by fmoulin          ###   ########.fr       */
+/*   Updated: 2025/07/03 13:12:54 by fmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@
 // 	struct s_stack_node *prev;
 // 	struct s_stack_node *next;
 // }				t_stack_node;
+
+void	print_stack(t_stack_node *a, t_stack_node *b);
 
 //Handle errors
 int	error_synthax(char *str_n);

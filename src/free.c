@@ -6,7 +6,7 @@
 /*   By: fmoulin <fmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:12:04 by fmoulin           #+#    #+#             */
-/*   Updated: 2025/07/02 16:55:13 by fmoulin          ###   ########.fr       */
+/*   Updated: 2025/07/04 17:11:11 by fmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,7 @@ void	free_stack(t_stack_node **stack)
 	current = *stack;
 	while (current)
 	{
-		
 		tmp = current->next;
-		current->nbr = 0;
 		free(current);
 		current = tmp;
 	}

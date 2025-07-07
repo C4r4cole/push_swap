@@ -6,7 +6,7 @@
 /*   By: fmoulin <fmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 09:12:57 by fmoulin           #+#    #+#             */
-/*   Updated: 2025/07/03 13:12:54 by fmoulin          ###   ########.fr       */
+/*   Updated: 2025/07/07 18:47:46 by fmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,19 @@ void			min_on_top(t_stack_node **a);
 
 //Nodes initiation
 void	append_node(t_stack_node **stack, int n);
-void	init_nodes_a(t_stack_node *a, t_stack_node *b);
+// void	init_nodes_a(t_stack_node *a, t_stack_node *b);
 void	init_nodes_b(t_stack_node *a, t_stack_node *b);
 void	current_index(t_stack_node *stack);
-void	set_target_a(t_stack_node *a, t_stack_node *b);
-void 	cost_analysis_a(t_stack_node *a, t_stack_node *b);
+// void	set_target_a(t_stack_node *a, t_stack_node *b);
+// void cost_analysis_a(t_stack_node *a, t_stack_node *b);
 void	set_cheapest(t_stack_node *stack);
-void	move_a_to_b(t_stack_node **a, t_stack_node **b);
+// void	move_a_to_b(t_stack_node **a, t_stack_node **b);
+
+//Set index
+void	set_index(t_stack_node *a, int len);
+void	create_index(t_stack_node *a, int *sorted_tab, int len);
+int		*sort_int_tab(int *tab, int len);
+int		*create_tab(t_stack_node *a, int len);
 
 //Stack utils
 bool			stack_sorted(t_stack_node *stack);

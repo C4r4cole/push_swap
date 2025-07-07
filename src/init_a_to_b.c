@@ -6,7 +6,7 @@
 /*   By: fmoulin <fmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 10:24:15 by fmoulin           #+#    #+#             */
-/*   Updated: 2025/07/03 12:13:05 by fmoulin          ###   ########.fr       */
+/*   Updated: 2025/07/07 20:00:02 by fmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	current_index(t_stack_node *stack)
 	median = ft_lstsize(stack) / 2;
 	while (stack)
 	{
-		stack->index = i;
+		stack->index_median = i;
 		if(i <= median)
 			stack->above_median = true;
 		else
@@ -33,50 +33,77 @@ void	current_index(t_stack_node *stack)
 	}
 }
 
-void	set_target_a(t_stack_node *a, t_stack_node *b)
+void	set_target_b(t_stack_node *a, t_stack_node *b)
 {
-	t_stack_node	*current_b;
+	t_stack_node	*current_a;
 	t_stack_node	*target_node;
 	long			best_match_index;
 
-	while (a)
+	while (b)
 	{
-		best_match_index = LONG_MIN;
-		current_b = b;
-		while (current_b)
+		best_match_index = LONG_MAX;
+		current_a = a;
+		while (current_a)
 		{
-			if (current_b->nbr < a->nbr && current_b->nbr > best_match_index)
+			if (current_a->nbr > b->nbr && current_a->nbr < best_match_index)
 			{
-				best_match_index = current_b->nbr;
-				target_node = current_b;
+				best_match_index = current_a->nbr;
+				target_node = current_a;
 			}
-			current_b = current_b->next;
+			current_a = current_a->next;
 		}
-		if (best_match_index == LONG_MIN)
-			a->target_node = find_max(b);
+		if (best_match_index == LONG_MAX)
+			b->target_node = find_min(a);
 		else
-			a->target_node = target_node;
-		a = a->next;
+			b->target_node = target_node;
+		b = b->next;
 	}
 }
 
-void cost_analysis_a(t_stack_node *a, t_stack_node *b)
+// void	set_target_a(t_stack_node *a, t_stack_node *b)
+// {
+// 	t_stack_node	*current_b;
+// 	t_stack_node	*target_node;
+// 	long			best_match_index;
+
+// 	while (a)
+// 	{
+// 		best_match_index = LONG_MIN;
+// 		current_b = b;
+// 		while (current_b)
+// 		{
+// 			if (current_b->nbr < a->nbr && current_b->nbr > best_match_index)
+// 			{
+// 				best_match_index = current_b->nbr;
+// 				target_node = current_b;
+// 			}
+// 			current_b = current_b->next;
+// 		}
+// 		if (best_match_index == LONG_MIN)
+// 			a->target_node = find_max(b);
+// 		else
+// 			a->target_node = target_node;
+// 		a = a->next;
+// 	}
+// }
+
+void cost_analysis_b(t_stack_node *a, t_stack_node *b)
 {
 	int	len_a;
 	int	len_b;
 	
 	len_a = ft_lstsize(a);
 	len_b = ft_lstsize(b);
-	while (a)
+	while (b)
 	{
-		a->push_cost = a->index;
-		if (!(a->above_median))
-			a->push_cost = len_a - (a->index);
-		if (a->target_node->above_median)
-			a->push_cost += a->target_node->index;
+		b->push_cost = b->index_median;
+		if (!(b->above_median))
+			b->push_cost = len_b - (b->index_median);
+		if (b->target_node->above_median)
+			b->push_cost += b->target_node->index_median;
 		else
-			a->push_cost += len_b - (a->target_node->index);
-		a = a->next;
+			b->push_cost += len_a - (b->target_node->index_median);
+		b = b->next;
 	}
 }
 
@@ -109,11 +136,11 @@ void	set_cheapest(t_stack_node *stack)
 		cheapest_node->cheapest = true;
 }
 
-void	init_nodes_a(t_stack_node *a, t_stack_node *b)
+void	init_nodes_b(t_stack_node *a, t_stack_node *b)
 {
 	current_index(a);
 	current_index(b);
-	set_target_a(a, b);
-	cost_analysis_a(a, b);
-	set_cheapest(a);
+	set_target_b(a, b);
+	cost_analysis_b(a, b);
+	set_cheapest(b);
 }

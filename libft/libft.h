@@ -6,7 +6,7 @@
 /*   By: fmoulin <fmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 09:12:46 by fmoulin           #+#    #+#             */
-/*   Updated: 2025/07/02 17:12:10 by fmoulin          ###   ########.fr       */
+/*   Updated: 2025/07/07 17:41:00 by fmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct s_stack_node
 {
 	int					nbr;
 	int					index;
+	int					index_median;
 	int					push_cost;
 	bool				above_median;
 	bool				cheapest;

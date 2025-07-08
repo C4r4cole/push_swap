@@ -6,7 +6,7 @@
 /*   By: fmoulin <fmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 16:02:30 by fmoulin           #+#    #+#             */
-/*   Updated: 2025/07/07 20:41:30 by fmoulin          ###   ########.fr       */
+/*   Updated: 2025/07/08 11:44:23 by fmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,6 @@ void	move_b_to_a(t_stack_node **a, t_stack_node **b)
 	pa(a, b, false);
 }
 
-// void	move_b_to_a(t_stack_node **a, t_stack_node **b)
-// {
-// 	prep_for_push(a, (*b)->target_node, 'a');
-// 	pa(a, b, false);
-// }
-
 void	min_on_top(t_stack_node **a)
 {
 	while ((*a)->nbr != find_min(*a)->nbr)
@@ -50,18 +44,12 @@ void	sort_stacks(t_stack_node **a, t_stack_node **b)
 	
 	len_a = ft_lstsize(*a);
 	total_length = len_a;
-	// if(len_a-- > 3 && !stack_sorted(*a))
-	// 	pb(b, a, false);
-	// if(len_a-- > 3 && !stack_sorted(*a))
-	// 	pb(b, a, false);
 	set_index(*a, len_a);
 	while(len_a-- > 3 && !stack_sorted(*a))
 	{
 		pb(b, a, false);
 		if ((*b)->index < (total_length / 2))
 			rb(b, false);
-		// init_nodes_a(*a, *b);
-		// move_a_to_b(a, b);
 	}
 	sort_three(a);
 	while(*b)

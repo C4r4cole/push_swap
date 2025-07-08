@@ -6,7 +6,7 @@
 /*   By: fmoulin <fmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:12:04 by fmoulin           #+#    #+#             */
-/*   Updated: 2025/07/04 17:11:11 by fmoulin          ###   ########.fr       */
+/*   Updated: 2025/07/08 11:35:18 by fmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,14 @@ void	free_errors(t_stack_node **a)
 	free_stack(a);
 	ft_printf("Error\n");
 	exit(1);
+}
+
+void	free_args(char **tab, int count)
+{
+	while (count > 0)
+	{
+		count--;
+		free(tab[count]);
+	}
+	free(tab);
 }

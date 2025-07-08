@@ -6,13 +6,13 @@
 /*   By: fmoulin <fmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/02 15:37:10 by fmoulin           #+#    #+#             */
-/*   Updated: 2025/05/07 10:20:03 by fmoulin          ###   ########.fr       */
+/*   Updated: 2025/07/08 11:20:28 by fmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_count_str(char const *str, char c)
+int	ft_count_str(char const *str, char c)
 {
 	int	i;
 	int	count;

@@ -6,7 +6,7 @@
 /*   By: fmoulin <fmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 09:12:57 by fmoulin           #+#    #+#             */
-/*   Updated: 2025/07/07 18:47:46 by fmoulin          ###   ########.fr       */
+/*   Updated: 2025/07/08 11:35:49 by fmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,5 +89,6 @@ void	sort_three(t_stack_node **a);
 //Free
 void	free_stack(t_stack_node **stack);
 void	free_errors(t_stack_node **a);
+void	free_args(char **tab, int count);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: fmoulin <fmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 11:45:22 by fmoulin           #+#    #+#             */
-/*   Updated: 2025/07/09 16:13:55 by fmoulin          ###   ########.fr       */
+/*   Updated: 2025/07/09 18:35:31 by fmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,9 @@ void	init_stack_a(t_stack_node **a, char **argv, int argc)
 			|| error_duplicate(*a, (int)n))
 		{
 			free_errors(a);
-			break ;
+			if (argc == 1)
+				free_args(argv, count);
+			exit(EXIT_SUCCESS);
 		}	
 		append_node(a, (int)n);
 		i++;

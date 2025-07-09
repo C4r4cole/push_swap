@@ -6,7 +6,7 @@
 /*   By: fmoulin <fmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 10:56:52 by fmoulin           #+#    #+#             */
-/*   Updated: 2025/07/09 16:26:31 by fmoulin          ###   ########.fr       */
+/*   Updated: 2025/07/09 17:21:55 by fmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,10 @@ int	main(int argc, char **argv)
 	args = argv + 1;
 	a = NULL;
 	b = NULL;
-	if (argc == 1 || (argc == 2 && !argv[1][0]))
+	if (argc == 1)
 		return (1);
+	if (argc == 2 && !argv[1][0])
+		return (ft_printf("Error\n"), 1);
 	init_stack_a(&a, args, argc - 1);
 	if (!stack_sorted(a))
 	{

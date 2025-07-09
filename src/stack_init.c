@@ -6,7 +6,7 @@
 /*   By: fmoulin <fmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 11:45:22 by fmoulin           #+#    #+#             */
-/*   Updated: 2025/07/07 20:22:30 by fmoulin          ###   ########.fr       */
+/*   Updated: 2025/07/09 16:13:55 by fmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	append_node(t_stack_node **stack, int n)
 {
 	t_stack_node	*new;
 	t_stack_node	*last_node;
-	
+
 	if (!stack)
 		return ;
 	new = malloc(sizeof(t_stack_node));
@@ -38,24 +38,29 @@ void	append_node(t_stack_node **stack, int n)
 	}
 }
 
-void	init_stack_a(t_stack_node **a, char **argv)
+void	init_stack_a(t_stack_node **a, char **argv, int argc)
 {
-	int	i;
-	long n;
+	int		i;
+	long	n;
+	int		count;
 
 	i = 0;
+	count = ft_count_str(argv[0], ' ');
+	if (argc == 1)
+		argv = ft_split(argv[0], ' ');
 	while (argv[i])
 	{
-		if(error_synthax(argv[i]))
+		if (error_synthax(argv[i]) || err_atoi(argv[i], &n)
+			|| error_duplicate(*a, (int)n))
+		{
 			free_errors(a);
-		n = ft_atoi(argv[i]);
-		if (n > INT_MAX || n < INT_MIN)
-			free_errors(a);
-		if(error_duplicate(*a, (int)n))
-			free_errors(a);
+			break ;
+		}	
 		append_node(a, (int)n);
 		i++;
 	}
+	if (argc == 1)
+		free_args(argv, count);
 }
 
 t_stack_node	*get_cheapest(t_stack_node *stack)
@@ -71,18 +76,18 @@ t_stack_node	*get_cheapest(t_stack_node *stack)
 	return (NULL);
 }
 
-void	prep_for_push(t_stack_node **stack, t_stack_node *top_node, char stack_name)
+void	prep_for_push(t_stack_node **stack, t_stack_node *top_node, char name)
 {
 	while (*stack != top_node)
 	{
-		if (stack_name == 'a')
+		if (name == 'a')
 		{
 			if (top_node->above_median)
 				ra(stack, false);
 			else
 				rra(stack, false);
 		}
-		else if (stack_name == 'b')
+		else if (name == 'b')
 		{
 			if (top_node->above_median)
 				rb(stack, false);

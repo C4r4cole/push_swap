@@ -6,7 +6,7 @@
 /*   By: fmoulin <fmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 16:42:01 by fmoulin           #+#    #+#             */
-/*   Updated: 2025/07/02 14:52:15 by fmoulin          ###   ########.fr       */
+/*   Updated: 2025/07/09 16:21:30 by fmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,5 @@ void	pb(t_stack_node **b, t_stack_node **a, bool print)
 {
 	push(b, a);
 	if (!print)
-		ft_printf("pb\n");	
+		ft_printf("pb\n");
 }

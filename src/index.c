@@ -6,7 +6,7 @@
 /*   By: fmoulin <fmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 16:16:51 by fmoulin           #+#    #+#             */
-/*   Updated: 2025/07/07 18:47:15 by fmoulin          ###   ########.fr       */
+/*   Updated: 2025/07/09 16:24:36 by fmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	*create_tab(t_stack_node *a, int len)
 {
 	int	*tab;
 	int	i;
-	
+
 	tab = malloc(sizeof(int) * len);
 	if (!tab)
 		return (0);
@@ -55,9 +55,9 @@ int	*sort_int_tab(int *tab, int size)
 
 void	create_index(t_stack_node *a, int *sorted_tab, int len)
 {
-	int i;
+	int	i;
 
-	while(a)
+	while (a)
 	{
 		i = 0;
 		while (i < len)
@@ -65,7 +65,7 @@ void	create_index(t_stack_node *a, int *sorted_tab, int len)
 			if (a->nbr == sorted_tab[i])
 			{
 				a->index = i;
-				break;
+				break ;
 			}
 			i++;
 		}
@@ -77,7 +77,7 @@ void	set_index(t_stack_node *a, int len)
 {
 	int	*tab;
 	int	*sorted_tab;
-	
+
 	tab = create_tab(a, len);
 	sorted_tab = sort_int_tab(tab, len);
 	create_index(a, sorted_tab, len);

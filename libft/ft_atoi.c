@@ -6,7 +6,7 @@
 /*   By: fmoulin <fmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 13:46:47 by fmoulin           #+#    #+#             */
-/*   Updated: 2025/07/02 17:09:55 by fmoulin          ###   ########.fr       */
+/*   Updated: 2025/07/09 16:34:28 by fmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,35 @@ long	ft_atoi(const char *nptr)
 		i++;
 	}
 	return (nb * sign);
+}
+
+//error
+int	err_atoi(const char *nptr, long *ptr_to_store_res)
+{
+	size_t	i;
+	int		sign;
+	long	nb;
+
+	i = 0;
+	sign = 1;
+	nb = 0;
+	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == 32)
+		i++;
+	if (nptr[i] == '-' || nptr[i] == '+')
+	{
+		if (nptr[i] == '-')
+			sign = sign * -1;
+		i++;
+	}
+	while (nptr[i] >= '0' && nptr[i] <= '9')
+	{
+		nb = nb * 10 + (nptr[i] - '0');
+		if (nb * sign > FT_INT_MAX || nb * sign < FT_INT_MIN)
+			return (1);
+		i++;
+	}
+	*ptr_to_store_res = nb * sign;
+	return (0);
 }
 
 /*

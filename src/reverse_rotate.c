@@ -6,7 +6,7 @@
 /*   By: fmoulin <fmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 19:40:32 by fmoulin           #+#    #+#             */
-/*   Updated: 2025/07/02 12:02:40 by fmoulin          ###   ########.fr       */
+/*   Updated: 2025/07/09 16:23:03 by fmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	reverse_rotate(t_stack_node **stack)
 {
-	t_stack_node *last;
+	t_stack_node	*last;
 
 	if (!*stack || !(*stack)->next)
 		return ;
@@ -44,11 +44,12 @@ void	rrr(t_stack_node **a, t_stack_node **b, bool print)
 {
 	reverse_rotate(a);
 	reverse_rotate(b);
-	if(!print)
+	if (!print)
 		ft_printf("rrr\n");
 }
 
-void	rev_rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest_node)
+void	rev_rotate_both(t_stack_node **a, t_stack_node **b,
+		t_stack_node *cheapest_node)
 {
 	while (*b != cheapest_node->target_node && *a != cheapest_node)
 		rrr(a, b, false);

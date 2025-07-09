@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_a_to_b.c                                      :+:      :+:    :+:   */
+/*   init_b_to_a.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmoulin <fmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 10:24:15 by fmoulin           #+#    #+#             */
-/*   Updated: 2025/07/08 11:43:34 by fmoulin          ###   ########.fr       */
+/*   Updated: 2025/07/09 16:25:27 by fmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ void	current_index(t_stack_node *stack)
 	int	median;
 
 	i = 0;
-	if(!stack)
+	if (!stack)
 		return ;
 	median = ft_lstsize(stack) / 2;
 	while (stack)
 	{
 		stack->index_median = i;
-		if(i <= median)
+		if (i <= median)
 			stack->above_median = true;
 		else
 			stack->above_median = false;
@@ -60,11 +60,11 @@ void	set_target_b(t_stack_node *a, t_stack_node *b)
 	}
 }
 
-void cost_analysis_b(t_stack_node *a, t_stack_node *b)
+void	cost_analysis_b(t_stack_node *a, t_stack_node *b)
 {
 	int	len_a;
 	int	len_b;
-	
+
 	len_a = ft_lstsize(a);
 	len_b = ft_lstsize(b);
 	while (b)

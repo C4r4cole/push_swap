@@ -6,7 +6,7 @@
 /*   By: fmoulin <fmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 10:56:52 by fmoulin           #+#    #+#             */
-/*   Updated: 2025/07/09 16:28:08 by fmoulin          ###   ########.fr       */
+/*   Updated: 2025/07/10 16:49:51 by fmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,6 @@ int	main(int argc, char **argv)
 			ft_printf("KO\n");
 	}
 	free_stack(&a);
+	free_stack(&b);
 	return (0);
 }

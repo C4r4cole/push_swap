@@ -6,7 +6,7 @@
 /*   By: fmoulin <fmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:12:04 by fmoulin           #+#    #+#             */
-/*   Updated: 2025/07/09 16:23:39 by fmoulin          ###   ########.fr       */
+/*   Updated: 2025/07/10 16:47:29 by fmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	free_stack(t_stack_node **stack)
 void	free_errors(t_stack_node **a)
 {
 	free_stack(a);
-	ft_printf("Error\n");
+	write(2, "Error\n", 6);
 	return ;
 }
 

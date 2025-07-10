@@ -6,7 +6,7 @@
 /*   By: fmoulin <fmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 10:56:52 by fmoulin           #+#    #+#             */
-/*   Updated: 2025/07/09 17:21:55 by fmoulin          ###   ########.fr       */
+/*   Updated: 2025/07/10 16:49:36 by fmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(int argc, char **argv)
 	if (argc == 1)
 		return (1);
 	if (argc == 2 && !argv[1][0])
-		return (ft_printf("Error\n"), 1);
+		return (write(2, "Error\n", 6), 1);
 	init_stack_a(&a, args, argc - 1);
 	if (!stack_sorted(a))
 	{
@@ -36,5 +36,6 @@ int	main(int argc, char **argv)
 			sort_stacks(&a, &b);
 	}
 	free_stack(&a);
+	free_stack(&b);
 	return (0);
 }
